@@ -60,6 +60,8 @@ void draw(){
   show();                           //show the balls and the messages
   buttons();                        // show buttons
   middleWall();                     //middle wall applied 
+ // character();
+ // movingCharacter();                //moving character
   messages();
 
   
@@ -178,6 +180,17 @@ void buttons(){
   fill( buttonr, buttong, buttonb);
   rectMode(CORNER);
   rect(5,350,25,100);
+  
+}
+
+void character(){
+  fill(0);
+  stroke(0);
+  ellipse( 400, 400, 50, 50);
+  
+}
+
+void movingCharacter(){
   
 }
 
