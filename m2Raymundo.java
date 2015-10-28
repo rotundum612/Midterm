@@ -245,8 +245,13 @@ void mousePressed(){
   
   //reset balls with mouse clicks
   
-  if (mouseX == gullX && mouseY == gullY){
+  if ( dist(mouseX, mouseY, gullX, gullY) < 15){
     gullX = random ( middle, east);  gullY = random ( north, south);
   }
-
+  if ( dist(mouseX, mouseY, ghostX, ghostY) < 15){
+    ghostX = random ( middle, east);  ghostY = random ( north, south);
+  }
+    if ( dist(mouseX, mouseY, rainX, rainY) < 15 ){
+    rainX = random ( middle, east);  rainY = random ( north, south);
+  }
 }
