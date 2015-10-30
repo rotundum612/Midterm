@@ -7,6 +7,9 @@ int r;
 int g;
 int b;
 
+int characterX;
+int characterY;
+
 String title = "Pool Project";
 String name = "Gershom Raymundo";
 String yeswall = "Press W to raise the wall";
@@ -14,12 +17,15 @@ String restart = "Press R to restart";
 String buttonReset = " R ";
 String buttonWall = " W ";
 String buttonPinkTable = " P ";
+String buttonCharacter = " M ";
 
 float gullX, gullY, gullDX, gullDY;
 float ghostX, ghostY, ghostDX, ghostDY;
 float rainX, rainY, rainDX, rainDY;
 
 boolean wall;
+boolean monkey;
+boolean monkeyMove;
 
 
 
@@ -60,8 +66,8 @@ void draw(){
   show();                           //show the balls and the messages
   buttons();                        // show buttons
   middleWall();                     //middle wall applied 
- // character();
- // movingCharacter();                //moving character
+  character();
+  movingCharacter();                //moving character
   messages();
 
   
@@ -118,6 +124,7 @@ void collisions(){
 
  void show(){
    fill( 255, 0, 0);                  // red ball
+   ellipseMode(CENTER);
    ellipse( gullX, gullY, 30, 30);
    
    fill( 0, 0, 255);                  // blue ball
@@ -184,13 +191,48 @@ void buttons(){
 }
 
 void character(){
-  fill(0);
+  if(monkey){
+  //ears
+  fill( 126, 88, 10);
   stroke(0);
-  ellipse( 400, 400, 50, 50);
+  strokeWeight(0);
+  triangle(characterX + 30, characterY, characterX + 80, characterY, characterX + 80, characterY - 75);
+  fill( 126, 88, 10);
+  stroke(0);
+  strokeWeight(0);
+  triangle(characterX - 30, characterY, characterX - 80, characterY, characterX - 80, characterY - 75);
+  
+  //head
+  fill( 229, 166, 37);
+  stroke(0);
+  strokeWeight(1);
+  ellipseMode(RADIUS);
+  ellipse( characterX, characterY, 50, 50);
+  
+  //eyes
+  fill( 255);
+  stroke(0);
+  strokeWeight(1);
+  ellipseMode(RADIUS);
+  ellipse( characterX + 20, characterY - 20, 10, 10);
+  ellipse( characterX - 20, characterY - 20, 10, 10);
+  
+  //mouth
+  fill( 255);
+  stroke(0);
+  strokeWeight(1);
+  ellipseMode(CORNER);
+  ellipse( characterX - 30, characterY + 15, 60, 30);
+  }
   
 }
 
 void movingCharacter(){
+  if(monkeyMove){
+  counter = counter + 1;
+  characterX = counter;
+  characterY = height - 50;
+  }
   
 }
 
@@ -203,6 +245,7 @@ void messages(){
   text(buttonReset , 11, 70);
   text(buttonWall , 11, 185);
   text(buttonPinkTable, 11, 300);
+  text(buttonCharacter, 11, 415);
 }
 
 
@@ -254,6 +297,11 @@ void mousePressed(){
       g = 250;
       b = 48;
     }
+  }
+  
+  if ( mouseX > 5 && mouseX < 30 && mouseY > 350 && mouseY <450){
+    monkey = true;
+    monkeyMove = true;
   }
   
   //reset balls with mouse clicks
