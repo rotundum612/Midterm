@@ -86,6 +86,9 @@ boolean wall=true;
       rect(rX+110, rY, rW-30, rH-20);
       fill(255);
       text("table pink",175,40);
+      
+      grading();
+      
     }
       
     
