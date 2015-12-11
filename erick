@@ -1,0 +1,176 @@
+String title = "CST112 midterm exam";
+String news = "click any ball to reset it to right half of table. (r resets all.)";
+String author = "Erick Moran";
+
+float left=50, right=400, top=75,bottom=200; //Table boundaries
+float middle=200;
+float top,botom,left,right;
+float middle;
+float eriX,eriY,eriDX,eriDY;
+float junX,JunY,junDX,junDY;
+float morX,morY,morDX,morDY;
+float rX,rY,rW,rH;
+int right;
+int right=0
+
+boolean wall=true;
+
+
+                                                                                
+
+//Setup : size and tabele
+void setup() 
+{
+  size (900,600);
+
+smooth();
+ellipseMode(CENTER);
+
+}
+ //Table boundaries
+ //next frame: table,bounce off walls,collisions,show all
+void draw() {
+  background(255);
+{rX=50;
+rY=25;
+rW=150;
+rH=50;
+size=(700,500);
+top=100;
+bottom=height-70;
+
+
+ 
+stroke(255,0,0);
+fill(0,150,0);
+rect(225,145,450,295);
+fill(255);
+noStroke();
+
+ellipse(225,145,90);
+  table ( left, top , right, bottom );
+  buttons();
+  bounce();
+  collisions();
+  show();
+  messages();
+  mouseDraw();}
+void reset() {
+//random positions.(balls,mouse positioned)
+eriX=right;
+eriY=bottom;
+junX=right;
+junY=top;
+morX=right;
+morY=midlle-100;
+miceX=width-500;
+micey=450;
+//table,bounce off walls,collisions
+void draw(){
+background(150,150,100);
+rectMode(CORNERS);
+table(left,right,bottom);
+bounce();
+collisions;
+show();
+messages();
+buttons();
+mouseDraw();
+}
+void buttons(){
+textSize(15);
+fill(100,160,170);
+rect(rX,rW,rH+5);
+fill(15);
+text("resets",75,45);
+//resets buttons
+fill(150,100,100);
+tectMode(CORNER);
+RECT(Rx+110,Ry,Rw-30,Rh-20);
+FILL(250);
+TEXT("pink table"),180,45);
+//make table pink
+fill(10,150,100);
+rect(rx+250,rY,rW,-20,rH-20);
+fill(15);
+text("don not show wall",rX+260,rY+20);
+//do not show wall
+rect(rX+400,rY,rW-20,rH-20);
+fill(250);
+text("show mouse",rx+415,rY+20); //show mouse
+}
+void draw mouse(){
+  if(mouse){
+    fill(138,138,139);
+    ellips(miceX,miceY,30,20);
+    micex+=miceDX;
+    frame=frame+1;
+    if(miceX<left||miceX>right)miceDX*=-1;
+    //MOUSE LEGS
+    if(miceDX==-1);{
+      if(frame/30%2==0){
+        ellipse(miceX-17,miceY+5,15,10);   //head
+        ellipse(miceX-17,miceY+5,2,2);  //eye
+        ellipse(miceX+23,miceY15,5)    //tail
+        ellipse(miceX+15,miceY+4,miceX+25,miceY+14); //nose
+        line(miceX-10,miceY+8,miceX-25,miceY+20);    //leg
+        line(micexx-10,miceY+8.miceX-25,miceY+20);  //leg
+      } else
+    {
+      ellipse(miceX-17,miceY+5,15,10);   //head
+      ellipse(micex-17,miceY+5,2,2);  //eye
+      ellipse(miceX+23,miceY+5,,);  //tail
+      ellipse(miceX-26,miceY+4,miceX+25,miceY+21);  //nose
+      line(miceX+15,miceY+4,miceX+25,miceY+14);  //leg
+      line(miceX-10,miceY+8,micex-20,miceY+21);  //leg
+    }}else i(miceDX==1){
+      if(frame/30%2==0){
+        ellipse(miceX+17,miceY+5,15,10);
+        ellipse(miceX+17,miceY+5,2,2);
+        ellipse(miceX-23,miceY,15,5);
+        ellipse(miceX+26,miceY+5,);
+        line(miceX-15.miceY+4,miceX-25,miceY+14);  //nose
+        line(micex+10,miceY+8,miceX+20,mice+21);
+      }else
+      {
+        ellipse(miceX+17,miceY+5,15,10);
+         ellipse(micex-17,miceY+5,2,2);
+          ellipse(miceX+26,miceY+5,);
+          ellipse(miceX-23,miceY,15,5);
+          line(micex+10,miceY+8,miceX+20,mice+21);
+           line(miceX-15.miceY+4,miceX-25,miceY+14);
+      }
+    }
+  }
+}
+//scene:draw table walls
+vid table(float lft,float top,float right,float bottom){
+  fill(tableRed,tableGreen,tableBlue); //green
+  strokeWeigh(20);
+  stroke(127,0,0); //wall
+  rect(left-20,top-20,right+20,bottom+20);
+  if(wall) {
+    float middle=(left+right)/2
+    stroke(0,127,0);
+    line(middle,top,middle,bottom);
+    stroke(0);
+    strokeWeight(1);
+  }
+}
+//Action:bounce wall,collisions
+void bounce() {
+  if(wall){
+    junX+=junDX;
+    if(junX<middle+23||junX>righ)junDX*=-1;
+    junY+=junDY;
+    if(junY<top||junY>bottom)junDY*=-1;
+    eriX+=eriDX;
+    if(eriX<middle+23||eriX>right)eriDX*=-1;
+    eriY+=eriDY;
+    if(morX<middle+23||morX>right)morDY+=-1;
+    morY+=morY;
+    ifmorY<top||morY>bottom)morDY+=-1;
+  }else
+  {
+    junX+=junDX;
+    if(junX<left||junX>right)junDX
